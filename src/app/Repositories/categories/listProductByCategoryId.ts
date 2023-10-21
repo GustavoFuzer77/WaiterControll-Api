@@ -12,7 +12,7 @@ export const listProductByCategoryId = async (req: Request, res: Response) => {
       .equals(categoryId);
 
     console.log(products, "products");
-    res.status(200).json({ products });
+    res.status(200).json(products);
   } catch (err) {
     res.status(500).json({
       error: true,

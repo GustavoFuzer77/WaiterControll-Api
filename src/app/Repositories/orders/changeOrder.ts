@@ -7,7 +7,7 @@ export const changeOrder = async (req: Request, res: Response) => {
     const { orderId } = req.params;
     const { status } = req.body;
 
-    if (!["WAITING", "IN_PROD", "DONE"].includes(status)) {
+    if (!["WAITING", "IN_PRODUCTION", "DONE"].includes(status)) {
       return res
         .status(400)
         .json({ error: true, message: "parâmetro inválido." });

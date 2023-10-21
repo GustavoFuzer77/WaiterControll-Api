@@ -7,7 +7,7 @@ export const createCategory = async (req: Request, res: Response) => {
     const { icon, name } = req.body;
 
     const category = await Category.create({ icon, name });
-    res.status(201).json({ category });
+    res.status(201).json(category);
   } catch (er) {
     res
       .status(500)
