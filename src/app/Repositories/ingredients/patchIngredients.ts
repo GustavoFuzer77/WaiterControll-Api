@@ -8,8 +8,6 @@ export const patchIngredients = async (req: Request, res: Response) => {
     const { name } = req.body;
     const icon = req.file?.filename;
 
-    console.log(name, icon)
-
     const ingredientUpdated = await Ingredients.findByIdAndUpdate(
       ingredientId,
       { name, icon }

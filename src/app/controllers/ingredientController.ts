@@ -4,6 +4,7 @@ import { Request, Response } from "express";
 import { createIngredient } from "../Repositories/ingredients/createIngredient";
 import { listIngredient } from "../Repositories/ingredients/listIngredient";
 import { deleteIngredients } from "../Repositories/ingredients/deleteIngredients";
+import { patchIngredients } from "../Repositories/ingredients/patchIngredients";
 
 type IngredientController = {
   store: (req: Request, res: Response) => void;
@@ -26,5 +27,7 @@ export const ingredientController: IngredientController = {
   remove: (req, res) => {
     deleteIngredients(req, res);
   },
-  update: (req, res) => {},
+  update: (req, res) => {
+    patchIngredients(req, res)
+  },
 };

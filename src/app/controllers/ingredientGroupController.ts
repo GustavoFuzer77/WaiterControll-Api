@@ -3,6 +3,7 @@
 import { Request, Response } from "express";
 import { createIngredientsGroup } from "../Repositories/ingredientsGroup/createIngredientsGroup";
 import { listGroups } from "../Repositories/ingredientsGroup/listIngredientsGroup";
+import { deleteIngredientsGroups } from "../Repositories/ingredientsGroup/deleteIngredientsGroups";
 
 type ingredientGroupController = {
   store: (req: Request, res: Response) => void;
@@ -22,6 +23,8 @@ export const ingredientGroupController: ingredientGroupController = {
   show: (req, res) => {
     // listProductByCategoryId(req, res);
   },
-  remove: (req, res) => {},
+  remove: (req, res) => {
+    deleteIngredientsGroups(req, res)
+  },
   update: (req, res) => {},
 };

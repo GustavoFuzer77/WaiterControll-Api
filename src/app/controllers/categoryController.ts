@@ -5,6 +5,7 @@ import { Request, Response } from "express";
 import { listCategories } from "../Repositories/categories/listCategories";
 import { createCategory } from "../Repositories/categories/createCategory";
 import { listProductByCategoryId } from "../Repositories/categories/listProductByCategoryId";
+import { deleteCategoryById } from "../Repositories/categories/deleteCategory";
 
 type CategoryController = {
   store: (req: Request, res: Response) => void;
@@ -24,6 +25,8 @@ export const categoryController: CategoryController = {
   show: (req, res) => {
     listProductByCategoryId(req, res)
   },
-  remove: (req, res) => {},
+  remove: (req, res) => {
+    deleteCategoryById(req, res)
+  },
   update: (req, res) => {},
 };

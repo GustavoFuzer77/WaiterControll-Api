@@ -4,9 +4,10 @@ import { Category } from "../../models/Category";
 
 export const createCategory = async (req: Request, res: Response) => {
   try {
-    const { icon, name } = req.body;
+    const { name } = req.body;
+    const icon = req.file?.filename
 
-    const category = await Category.create({ icon, name });
+    const category = await Category.create({ name, icon });
     res.status(201).json(category);
   } catch (er) {
     res
