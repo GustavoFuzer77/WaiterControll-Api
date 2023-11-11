@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { createProduct } from "../Repositories/products/createProduct";
 import { listProducts } from "../Repositories/products/listProducts";
+import { deleteProduct } from "../Repositories/products/deleteProductById";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 type ProductController = {
@@ -19,6 +20,8 @@ export const productController: ProductController = {
     listProducts(req, res);
   },
   show: (req, res) => {},
-  remove: (req, res) => {},
+  remove: (req, res) => {
+    deleteProduct(req, res);
+  },
   update: (req, res) => {},
 };

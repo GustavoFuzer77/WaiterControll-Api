@@ -11,7 +11,6 @@ export const listGroups = async (req: Request, res: Response) => {
       });
 
     const filteredGroups = groups.map((group) => {
-      console.log(group.ingredients, "???");
 
       const filteredIngredients = group.ingredients.filter(
         (ingredient) => ingredient.ingredient !== null
