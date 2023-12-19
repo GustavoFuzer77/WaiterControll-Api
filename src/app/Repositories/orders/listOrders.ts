@@ -8,7 +8,22 @@ export const listOrders = async (req: Request, res: Response) => {
       .sort({ createdAt: 1 })
       .populate("products.product");
 
-    res.status(200).json(orders);
+    const filteredGroups = orders.map((orders) => {
+
+      const filteredIngredients = orders.products.filter(
+        (elx) => elx.product !== null
+      );
+
+      return {
+        createdAt: orders.createdAt,
+        products: filteredIngredients,
+        status: orders.status,
+        table: orders.table,
+        _id: orders._id,
+      };
+    });
+
+    res.status(200).json(filteredGroups);
   } catch (err) {
     res.status(500).json({
       error: true,
