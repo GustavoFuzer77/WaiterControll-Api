@@ -7,17 +7,18 @@ export const deleteIngredientsGroups = async (req: Request, res: Response) => {
   try {
     const { ingredientId } = req.params;
 
-    const existIngredientBond = await Product.findOne({
+    const existProductBond = await Product.findOne({
       "ingredients.ingredient": ingredientId,
     });
 
 
-    if(existIngredientBond){
+    if(existProductBond){
       return res.status(400).json({
         error: true,
-        message: "Ocorreu um erro ao tentar deletar um ingrediente, pois ele esta vinculado á um grupo.",
+        message: "Ocorreu um erro ao tentar deletar uma categoria, pois ele esta vinculado á um produto.",
       });
     }
+
     await IngredientGroup.findByIdAndDelete(ingredientId);
 
     res.status(200).json({ deleted: true });
